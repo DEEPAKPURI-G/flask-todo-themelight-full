@@ -1,6 +1,7 @@
 __pycache__/
 instance/
 *.pyc
+*.db
 .env
 app.db
 venv/
