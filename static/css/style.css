@@ -1,0 +1,21 @@
+:root{
+  --bg: #ffffff;
+  --card: #f8fafc;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-2: #10b981;
+  --text: #0f172a;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;padding:0}
+.container{max-width:960px;margin:2rem auto;padding:1rem}
+.card{background:var(--card);border-radius:12px;padding:1.25rem;box-shadow:0 6px 18px rgba(15,23,42,0.06);}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.btn{padding:.5rem .8rem;border-radius:8px;border:none;cursor:pointer;background:linear-gradient(90deg,var(--accent),#4f46e5);color:#fff}
+.btn.secondary{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--muted)}
+.input, textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(15,23,42,0.06);background:#fff;color:var(--text)}
+.task-item{display:flex;justify-content:space-between;align-items:center;padding:.6rem;border-radius:8px;margin-bottom:.6rem;border:1px solid rgba(15,23,42,0.04);background:white}
+.task-meta{font-size:.85rem;color:var(--muted)}
+.completed{opacity:.6;text-decoration:line-through}
+.nav{display:flex;gap:.5rem}
+.footer{margin-top:1.2rem;font-size:.9rem;color:var(--muted)}
+.form-control{border-radius:8px}

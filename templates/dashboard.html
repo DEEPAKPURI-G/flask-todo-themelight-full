@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h3>Your Tasks</h3>
+    <div>
+      <a class="btn" href="{{ url_for('create_task') }}">+ New</a>
+    </div>
+  </div>
+
+  <div style="margin-top:.6rem;margin-bottom:.6rem" class="row">
+    <a class="btn secondary" href="{{ url_for('dashboard', show='all') }}">All</a>
+    <a class="btn secondary" href="{{ url_for('dashboard', show='active') }}">Active</a>
+    <a class="btn secondary" href="{{ url_for('dashboard', show='completed') }}">Completed</a>
+  </div>
+
+  {% if tasks %}
+    {% for t in tasks %}
+      <div class="task-item">
+        <div>
+          <h5 class="{{ 'completed' if t.completed else ''}}">{{ t.title }}</h5>
+          <div class="task-meta">{{ t.created_at.strftime('%b %d, %Y %H:%M') }}</div>
+        </div>
+        <div style="display:flex;gap:.4rem;align-items:center">
+          <form method="POST" action="{{ url_for('toggle_task', task_id=t.id) }}">
+            <button class="btn secondary" type="submit">{{ 'Undo' if t.completed else 'Done' }}</button>
+          </form>
+          <a class="btn secondary" href="{{ url_for('edit_task', task_id=t.id) }}">Edit</a>
+          <form method="POST" action="{{ url_for('delete_task', task_id=t.id) }}" class="confirm-delete" data-title="{{ t.title }}">
+            <button class="btn" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No tasks yet — create one!</p>
+  {% endif %}
+</div>
+{% endblock %}

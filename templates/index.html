@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Welcome — Flask Todo{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="card p-4" style="max-width: 520px; width:100%;">
+
+    <h3 class="text-center mb-3 fw-bold">Welcome 👋</h3>
+
+    <p class="text-center text-muted mb-4">
+      Light-themed todo app with secure login. Create an account or login to manage your daily tasks efficiently.
+    </p>
+
+    <div class="d-flex justify-content-center gap-3">
+      <a class="btn btn-primary w-50 fw-semibold" href="{{ url_for('register') }}">Create Account</a>
+      <a class="btn secondary w-50 fw-semibold" href="{{ url_for('login') }}">Login</a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
